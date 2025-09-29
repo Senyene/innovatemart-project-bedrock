@@ -22,3 +22,6 @@ module "developer_access" {
   source    = "./modules/iam-dev-access"
   user_name = "innovatemart-dev"
 }
+
+# Example change
+# This is a test comment for CI/CD
