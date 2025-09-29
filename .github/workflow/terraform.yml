@@ -31,7 +31,7 @@ jobs:
       run: terraform init
 
     - name: Terraform Plan
-      if: startsWith(github.ref, 'refs/heads/feature/')
+      if: contains(github.ref, 'refs/heads/feature/')
       run: terraform plan
 
     - name: Terraform Apply
