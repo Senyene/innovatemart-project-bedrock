@@ -3,6 +3,11 @@ variable "project" {
   type        = string
 }
 
+variable "region" {
+  description = "AWS region where resources will be deployed"
+  type        = string
+}
+
 variable "cluster_name" {
   description = "EKS cluster name"
   type        = string

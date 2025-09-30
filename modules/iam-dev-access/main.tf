@@ -3,6 +3,10 @@ resource "aws_iam_user" "developer" {
   tags = {
     Purpose = "EKS ReadOnly Access"
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_iam_access_key" "developer" {
@@ -13,6 +17,10 @@ resource "aws_iam_policy" "eks_readonly" {
   name        = "EKSReadOnlyAccess"
   description = "Read-only access to EKS cluster"
   policy      = file("${path.module}/eks-readonly-policy.json")
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_iam_user_policy_attachment" "attach" {
