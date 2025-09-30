@@ -4,9 +4,9 @@ resource "aws_iam_user" "developer" {
     Purpose = "EKS ReadOnly Access"
   }
 
-  lifecycle {
-    prevent_destroy = true
-  }
+ # lifecycle {
+  #  prevent_destroy = true
+  #}
 }
 
 resource "aws_iam_access_key" "developer" {
@@ -18,9 +18,9 @@ resource "aws_iam_policy" "eks_readonly" {
   description = "Read-only access to EKS cluster"
   policy      = file("${path.module}/eks-readonly-policy.json")
 
-  lifecycle {
-    prevent_destroy = true
-  }
+ # lifecycle {
+  #  prevent_destroy = true
+ # }
 }
 
 resource "aws_iam_user_policy_attachment" "attach" {

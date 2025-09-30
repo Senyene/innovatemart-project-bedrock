@@ -17,9 +17,9 @@ resource "aws_cloudwatch_log_group" "eks_cluster" {
   name              = "/aws/eks/${var.cluster_name}/cluster"
   retention_in_days = 30
 
-  lifecycle {
-    prevent_destroy = true
-  }
+#  lifecycle {
+ #   prevent_destroy = true
+  #}
 
   tags = {
     Environment = "production"
@@ -63,9 +63,9 @@ module "eks" {
         Project     = "Innovatemart-Bedrock-Edion"
       }
 
-      lifecycle = {
-        ignore_changes = ["labels", "desired_capacity"]
-      }
+ #     lifecycle = {
+  #      ignore_changes = ["labels", "desired_capacity"]
+   #   }
     }
   }
 
