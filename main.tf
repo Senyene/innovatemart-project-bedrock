@@ -26,13 +26,13 @@ resource "aws_cloudwatch_log_group" "eks_cluster" {
   name              = "/aws/eks/${var.cluster_name}/cluster"
   retention_in_days = 30
 
- #  lifecycle {
- #   prevent_destroy = true
- #  ignore_changes = [
- #     retention_in_days,
- #     tags,
- #   ]
- # }
+  #  lifecycle {
+  #   prevent_destroy = true
+  #  ignore_changes = [
+  #     retention_in_days,
+  #     tags,
+  #   ]
+  # }
 
   tags = {
     Environment = "production"
@@ -55,9 +55,9 @@ module "eks" {
 resource "aws_iam_user" "developer" {
   name = "innovatemart-dev"
 
- # lifecycle {
- #   prevent_destroy = true
- # }
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 }
 
 data "aws_iam_policy_document" "eks_readonly" {
@@ -71,9 +71,9 @@ resource "aws_iam_policy" "eks_readonly" {
   name   = "EKSReadOnlyAccess"
   policy = data.aws_iam_policy_document.eks_readonly.json
 
- # lifecycle {
- #  prevent_destroy = true
- # }
+  # lifecycle {
+  #  prevent_destroy = true
+  # }
 }
 
 module "developer_access" {
